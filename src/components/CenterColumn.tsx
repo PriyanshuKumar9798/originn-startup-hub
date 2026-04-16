@@ -4,18 +4,21 @@ import fabricImg from "@/assets/fabric-thumb.jpg";
 import founder1 from "@/assets/founder1.jpg";
 import founder2 from "@/assets/founder2.jpg";
 
+const tabs = ["About", "Behind the scenes", "Team", "Collaborate", "Jobs"];
+
 const CenterColumn = () => (
   <main className="space-y-4">
     {/* Hero */}
-    <div className="w-full overflow-hidden border border-border">
-      <img src={heroImg} alt="Kashmir mountain landscape" className="w-full h-48 object-cover rounded-none" width={1200} height={512} />
+    <div className="w-full overflow-hidden border border-border relative">
+      <img src={heroImg} alt="Kashmir mountain landscape" className="w-full h-52 object-cover rounded-none" width={1200} height={512} />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
     </div>
 
     {/* Profile Header */}
     <div className="bg-card border border-border p-4">
       <div className="flex items-start justify-between">
         <div className="flex gap-3">
-          <img src={fabricImg} alt="Kashmir Trends" className="w-14 h-14 object-cover rounded-none" width={56} height={56} />
+          <img src={fabricImg} alt="Kashmir Trends" className="w-14 h-14 object-cover rounded-none border border-border" width={56} height={56} />
           <div>
             <h1 className="text-lg font-extrabold text-primary uppercase tracking-wide">Kashmir Trends</h1>
             <div className="flex gap-2 mt-1">
@@ -33,7 +36,7 @@ const CenterColumn = () => (
         </div>
         <div className="flex gap-1.5">
           {[Globe, Bookmark, Share2].map((Icon, i) => (
-            <button key={i} className="w-8 h-8 border border-border flex items-center justify-center hover:bg-muted rounded-none">
+            <button key={i} className="w-8 h-8 border border-border flex items-center justify-center hover:bg-primary/5 transition-colors rounded-none">
               <Icon className="w-3.5 h-3.5 text-primary" />
             </button>
           ))}
@@ -41,10 +44,26 @@ const CenterColumn = () => (
       </div>
     </div>
 
+    {/* Horizontal Tab Bar */}
+    <div className="bg-card border border-border flex">
+      {tabs.map((tab, i) => (
+        <button
+          key={tab}
+          className={`px-5 py-2.5 text-xs font-semibold uppercase tracking-wider border-r border-border last:border-r-0 rounded-none transition-colors ${
+            i === 0
+              ? "bg-primary text-primary-foreground"
+              : "text-foreground hover:bg-primary/5 hover:text-primary"
+          }`}
+        >
+          {tab}
+        </button>
+      ))}
+    </div>
+
     {/* Company Overview */}
-    <div className="bg-card border border-border p-5">
+    <div className="bg-card border border-border p-5 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 bg-originn-blue-light flex items-center justify-center">
+        <div className="w-6 h-6 bg-primary/10 flex items-center justify-center">
           <Building2 className="w-3.5 h-3.5 text-primary" />
         </div>
         <h2 className="text-sm font-bold uppercase tracking-wider text-foreground">Company Overview</h2>
@@ -61,15 +80,15 @@ const CenterColumn = () => (
     </div>
 
     {/* Incubation */}
-    <div className="bg-card border border-border p-5">
+    <div className="bg-card border border-border p-5 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 bg-originn-blue-light flex items-center justify-center">
+        <div className="w-6 h-6 bg-primary/10 flex items-center justify-center">
           <Rocket className="w-3.5 h-3.5 text-primary" />
         </div>
         <h2 className="text-sm font-bold uppercase tracking-wider text-foreground">Incubation and Background</h2>
       </div>
       <div className="flex gap-4 items-start">
-        <div className="border border-border px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-primary whitespace-nowrap">
+        <div className="border-2 border-primary/20 bg-primary/5 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-primary whitespace-nowrap">
           IIT Madras
         </div>
         <p className="text-xs leading-relaxed text-foreground">
@@ -81,9 +100,9 @@ const CenterColumn = () => (
     </div>
 
     {/* What are we building */}
-    <div className="bg-card border border-border p-5">
+    <div className="bg-card border border-border p-5 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 bg-originn-blue-light flex items-center justify-center">
+        <div className="w-6 h-6 bg-primary/10 flex items-center justify-center">
           <Code className="w-3.5 h-3.5 text-primary" />
         </div>
         <h2 className="text-sm font-bold uppercase tracking-wider text-foreground">What Are We Building?</h2>
@@ -97,9 +116,9 @@ const CenterColumn = () => (
     </div>
 
     {/* Founders */}
-    <div className="bg-card border border-border p-5">
+    <div className="bg-card border border-border p-5 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-6 h-6 bg-originn-blue-light flex items-center justify-center">
+        <div className="w-6 h-6 bg-primary/10 flex items-center justify-center">
           <Users className="w-3.5 h-3.5 text-primary" />
         </div>
         <h2 className="text-sm font-bold uppercase tracking-wider text-foreground">Meet the Founders</h2>
@@ -109,8 +128,8 @@ const CenterColumn = () => (
           { img: founder1, name: "Inayat Barkat", title: "Chief Executive Officer", school: "IIT Madras" },
           { img: founder2, name: "Leila Bakshi", title: "Creative Director", school: "London School of Design" },
         ].map((f, i) => (
-          <div key={i} className="border border-border p-3 flex gap-3 items-center">
-            <img src={f.img} alt={f.name} className="w-12 h-12 object-cover grayscale rounded-none" loading="lazy" width={48} height={48} />
+          <div key={i} className="border border-border p-3 flex gap-3 items-center hover:border-primary/30 hover:shadow-sm transition-all">
+            <img src={f.img} alt={f.name} className="w-12 h-12 object-cover grayscale hover:grayscale-0 transition-all rounded-none" loading="lazy" width={48} height={48} />
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-primary uppercase">{f.name}</span>

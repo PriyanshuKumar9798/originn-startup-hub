@@ -1,40 +1,100 @@
-import { Youtube, Facebook, Instagram } from "lucide-react";
+import { TrendingUp, GraduationCap, Flame, ExternalLink } from "lucide-react";
 
-const tabs = ["About", "Behind the scenes", "Team", "Collaborate", "Jobs"];
+const sectorStartups = [
+  { name: "ShipKart", desc: "AI-powered last-mile delivery", votes: 892 },
+  { name: "LogiChain", desc: "Blockchain supply tracking", votes: 1103 },
+  { name: "FreightBox", desc: "Cross-border freight platform", votes: 647 },
+  { name: "WareHive", desc: "Smart warehouse management", votes: 421 },
+];
+
+const instituteStartups = [
+  { name: "AgroSense", desc: "Precision agriculture IoT", votes: 2041 },
+  { name: "MedPulse", desc: "Rural telemedicine network", votes: 1580 },
+  { name: "EduBridge", desc: "Vernacular learning platform", votes: 978 },
+];
+
+const trendingStartups = [
+  { name: "CraftVault", desc: "NFT-backed artisan certificates", tag: "Hot" },
+  { name: "GreenThread", desc: "Sustainable textile recycling", tag: "New" },
+  { name: "BazaarOS", desc: "Marketplace-as-a-service", tag: "Rising" },
+];
 
 const LeftSidebar = () => (
   <aside className="space-y-4">
-    <div className="bg-card border border-border">
-      {tabs.map((tab, i) => (
-        <button
-          key={tab}
-          className={`block w-full text-left px-4 py-2.5 text-xs font-semibold uppercase tracking-wider border-b border-border last:border-b-0 rounded-none ${
-            i === 0 ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-muted"
-          }`}
-        >
-          {tab}
+    {/* Recommended in Sector */}
+    <div className="bg-card border border-border overflow-hidden">
+      <div className="bg-primary/5 border-b border-border px-4 py-3 flex items-center gap-2">
+        <div className="w-5 h-5 bg-primary/10 flex items-center justify-center">
+          <TrendingUp className="w-3 h-3 text-primary" />
+        </div>
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-foreground">In Sector</h3>
+        <span className="ml-auto text-[9px] font-semibold text-primary uppercase tracking-wider">Logistics</span>
+      </div>
+      <div className="divide-y divide-border">
+        {sectorStartups.map((s, i) => (
+          <div key={i} className="px-4 py-2.5 hover:bg-muted/50 cursor-pointer transition-colors group">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-foreground group-hover:text-primary transition-colors">{s.name}</span>
+              <span className="text-[9px] font-semibold text-muted-foreground">▲ {s.votes}</span>
+            </div>
+            <p className="text-[10px] text-muted-foreground mt-0.5">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-border px-4 py-2 bg-muted/30">
+        <button className="text-[10px] font-semibold text-primary uppercase tracking-wider hover:underline flex items-center gap-1">
+          View all in sector <ExternalLink className="w-2.5 h-2.5" />
         </button>
-      ))}
+      </div>
     </div>
 
-    <div className="bg-card border border-border p-4">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">Connect With Us</h3>
-        <span className="text-muted-foreground text-xs">🔗</span>
+    {/* Recommended in Institute */}
+    <div className="bg-card border border-border overflow-hidden">
+      <div className="bg-primary/5 border-b border-border px-4 py-3 flex items-center gap-2">
+        <div className="w-5 h-5 bg-primary/10 flex items-center justify-center">
+          <GraduationCap className="w-3 h-3 text-primary" />
+        </div>
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-foreground">From IIT Madras</h3>
       </div>
-      <div className="grid grid-cols-4 gap-2">
-        {[
-          { icon: <Youtube className="w-4 h-4" />, color: "text-red-600" },
-          { icon: <Facebook className="w-4 h-4" />, color: "text-blue-600" },
-          { icon: <Instagram className="w-4 h-4" />, color: "text-pink-500" },
-          { icon: <span className="font-bold text-sm">𝕏</span>, color: "text-foreground" },
-        ].map((s, i) => (
-          <button
-            key={i}
-            className="w-full aspect-square border border-border flex items-center justify-center hover:bg-muted rounded-none"
-          >
-            <span className={s.color}>{s.icon}</span>
-          </button>
+      <div className="divide-y divide-border">
+        {instituteStartups.map((s, i) => (
+          <div key={i} className="px-4 py-2.5 hover:bg-muted/50 cursor-pointer transition-colors group">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-foreground group-hover:text-primary transition-colors">{s.name}</span>
+              <span className="text-[9px] font-semibold text-muted-foreground">▲ {s.votes}</span>
+            </div>
+            <p className="text-[10px] text-muted-foreground mt-0.5">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-border px-4 py-2 bg-muted/30">
+        <button className="text-[10px] font-semibold text-primary uppercase tracking-wider hover:underline flex items-center gap-1">
+          View all from IIT Madras <ExternalLink className="w-2.5 h-2.5" />
+        </button>
+      </div>
+    </div>
+
+    {/* Trending Now */}
+    <div className="bg-card border border-border overflow-hidden">
+      <div className="bg-primary/5 border-b border-border px-4 py-3 flex items-center gap-2">
+        <div className="w-5 h-5 bg-primary/10 flex items-center justify-center">
+          <Flame className="w-3 h-3 text-primary" />
+        </div>
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-foreground">Trending Now</h3>
+      </div>
+      <div className="divide-y divide-border">
+        {trendingStartups.map((s, i) => (
+          <div key={i} className="px-4 py-2.5 hover:bg-muted/50 cursor-pointer transition-colors group">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-foreground group-hover:text-primary transition-colors">{s.name}</span>
+              <span className={`text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 ${
+                s.tag === "Hot" ? "bg-destructive/10 text-destructive" :
+                s.tag === "New" ? "bg-originn-green/15 text-originn-green" :
+                "bg-primary/10 text-primary"
+              }`}>{s.tag}</span>
+            </div>
+            <p className="text-[10px] text-muted-foreground mt-0.5">{s.desc}</p>
+          </div>
         ))}
       </div>
     </div>
