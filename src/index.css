@@ -63,12 +63,12 @@
   }
 }
 
-/* Subtle card hover lift */
 @layer utilities {
   .card-hover {
     @apply transition-all duration-200;
   }
   .card-hover:hover {
-    box-shadow: 0 2px 12px -4px hsl(var(--primary) / 0.1);
+    box-shadow: 0 4px 20px -6px hsl(var(--primary) / 0.15);
+    border-color: hsl(var(--primary) / 0.2);
   }
 }
