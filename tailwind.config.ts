@@ -7,12 +7,18 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1440px",
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"Open Sans"', 'sans-serif'],
+      },
+      borderRadius: {
+        none: "0px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,6 +62,12 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        originn: {
+          blue: "hsl(var(--originn-blue))",
+          "blue-light": "hsl(var(--originn-blue-light))",
+          green: "hsl(var(--originn-green))",
+          dark: "hsl(var(--originn-dark))",
         },
       },
       borderRadius: {
