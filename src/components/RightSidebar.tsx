@@ -1,9 +1,10 @@
-import { ChevronUp, ChevronDown, ExternalLink } from "lucide-react";
+import { ChevronUp, ChevronDown, ExternalLink, Youtube, Facebook, Instagram } from "lucide-react";
 
 const RightSidebar = () => (
   <aside className="space-y-4">
     {/* Current Status */}
-    <div className="bg-primary text-primary-foreground p-5">
+    <div className="bg-primary text-primary-foreground p-5 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 -translate-y-8 translate-x-8 rotate-45" />
       <p className="text-[10px] font-semibold uppercase tracking-widest opacity-70 mb-1">Current Status</p>
       <h2 className="text-3xl font-extrabold uppercase italic leading-tight">Idea Stage</h2>
       <div className="mt-4 space-y-2">
@@ -38,8 +39,8 @@ const RightSidebar = () => (
               <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{r.label}</span>
               <span className="text-lg font-extrabold text-primary">{r.rank}</span>
             </div>
-            <div className="w-full h-1.5 bg-muted">
-              <div className="h-full bg-primary" style={{ width: r.width }} />
+            <div className="w-full h-1.5 bg-muted overflow-hidden">
+              <div className="h-full bg-primary transition-all duration-500" style={{ width: r.width }} />
             </div>
           </div>
         ))}
@@ -57,10 +58,10 @@ const RightSidebar = () => (
       <div className="flex items-center gap-3 mb-4">
         <span className="text-4xl font-extrabold text-foreground">1,248</span>
         <div className="flex flex-col gap-0.5">
-          <button className="w-7 h-7 border border-border flex items-center justify-center hover:bg-muted rounded-none">
+          <button className="w-7 h-7 border border-border flex items-center justify-center hover:bg-primary/5 transition-colors rounded-none">
             <ChevronUp className="w-4 h-4 text-foreground" />
           </button>
-          <button className="w-7 h-7 border border-border flex items-center justify-center hover:bg-muted rounded-none">
+          <button className="w-7 h-7 border border-border flex items-center justify-center hover:bg-primary/5 transition-colors rounded-none">
             <ChevronDown className="w-4 h-4 text-foreground" />
           </button>
         </div>
@@ -72,6 +73,29 @@ const RightSidebar = () => (
       <div className="flex gap-1">
         {[...Array(5)].map((_, i) => (
           <div key={i} className={`flex-1 h-2 ${i < 4 ? "bg-originn-green" : "bg-muted"}`} />
+        ))}
+      </div>
+    </div>
+
+    {/* Connect With Us - moved from left */}
+    <div className="bg-card border border-border p-4">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">Connect With Us</h3>
+        <span className="text-muted-foreground text-xs">🔗</span>
+      </div>
+      <div className="grid grid-cols-4 gap-2">
+        {[
+          { icon: <Youtube className="w-4 h-4" />, color: "text-red-600", hoverBg: "hover:bg-red-50" },
+          { icon: <Facebook className="w-4 h-4" />, color: "text-blue-600", hoverBg: "hover:bg-blue-50" },
+          { icon: <Instagram className="w-4 h-4" />, color: "text-pink-500", hoverBg: "hover:bg-pink-50" },
+          { icon: <span className="font-bold text-sm">𝕏</span>, color: "text-foreground", hoverBg: "hover:bg-muted" },
+        ].map((s, i) => (
+          <button
+            key={i}
+            className={`w-full aspect-square border border-border flex items-center justify-center ${s.hoverBg} transition-colors rounded-none`}
+          >
+            <span className={s.color}>{s.icon}</span>
+          </button>
         ))}
       </div>
     </div>

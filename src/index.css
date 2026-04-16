@@ -21,7 +21,7 @@
     --secondary: 220 14% 96%;
     --secondary-foreground: 220 20% 20%;
 
-    --muted: 220 14% 96%;
+    --muted: 220 14% 92%;
     --muted-foreground: 220 10% 50%;
 
     --accent: 230 70% 30%;
@@ -60,5 +60,15 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Open Sans', sans-serif;
+  }
+}
+
+/* Subtle card hover lift */
+@layer utilities {
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+  .card-hover:hover {
+    box-shadow: 0 2px 12px -4px hsl(var(--primary) / 0.1);
   }
 }
