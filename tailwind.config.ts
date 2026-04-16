@@ -63,6 +63,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        originn: {
+          blue: "hsl(var(--originn-blue))",
+          "blue-light": "hsl(var(--originn-blue-light))",
+          green: "hsl(var(--originn-green))",
+          dark: "hsl(var(--originn-dark))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
