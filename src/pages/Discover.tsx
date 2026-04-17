@@ -1,6 +1,18 @@
-import { ArrowRight, BadgeCheck, ChevronDown, Search, Sparkles } from "lucide-react";
+import { BadgeCheck, ChevronDown, Search, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import kashmirImg from "@/assets/discover/kashmir-trends.jpg";
+import shipkartImg from "@/assets/discover/shipkart.jpg";
+import warehiveImg from "@/assets/discover/warehive.jpg";
+import logichainImg from "@/assets/discover/logichain.jpg";
+import threadportImg from "@/assets/discover/threadport.jpg";
+import freightboxImg from "@/assets/discover/freightbox.jpg";
+import bazaarosImg from "@/assets/discover/bazaaros.jpg";
+import greenthreadImg from "@/assets/discover/greenthread.jpg";
+import craftvaultImg from "@/assets/discover/craftvault.jpg";
+import urbannestImg from "@/assets/discover/urbannest.jpg";
+import pulserouteImg from "@/assets/discover/pulseroute.jpg";
+import atlasloomImg from "@/assets/discover/atlasloom.jpg";
 
 const filters = ["Category", "Stage", "Institute", "Product Type", "Target Market"];
 
@@ -11,90 +23,18 @@ const activeTags = [
 ];
 
 const featuredStartups = [
-  {
-    name: "Kashmir Trends",
-    summary: "Digital commerce infrastructure bringing Kashmiri apparel makers into global retail supply chains.",
-    institute: "IIT Madras",
-    category: "Logistics & Supply Chain",
-    accent: "KT",
-  },
-  {
-    name: "ShipKart",
-    summary: "Smart routing software designed for cross-border inventory and artisan-led distribution networks.",
-    institute: "IIT Bombay",
-    category: "Mobility",
-    accent: "SK",
-  },
-  {
-    name: "WareHive",
-    summary: "Composable warehousing systems that help fragmented manufacturers operate as one export-ready network.",
-    institute: "IIT Madras",
-    category: "Industrial SaaS",
-    accent: "WH",
-  },
-  {
-    name: "LogiChain",
-    summary: "Traceability and logistics orchestration for regional supply ecosystems with premium buyers.",
-    institute: "IIM Ahmedabad",
-    category: "Supply Infrastructure",
-    accent: "LC",
-  },
-  {
-    name: "ThreadPort",
-    summary: "AI-assisted export operating system helping textile makers price, pack, and dispatch with confidence.",
-    institute: "NIFT Delhi",
-    category: "Trade Tech",
-    accent: "TP",
-  },
-  {
-    name: "FreightBox",
-    summary: "Cargo intelligence layer for smaller brands that need visibility without enterprise complexity.",
-    institute: "IIT Kharagpur",
-    category: "Logistics Data",
-    accent: "FB",
-  },
-  {
-    name: "BazaarOS",
-    summary: "Market access stack connecting local producers to structured retail demand and merchandising flows.",
-    institute: "IIT Madras",
-    category: "Retail Systems",
-    accent: "BO",
-  },
-  {
-    name: "GreenThread",
-    summary: "Sustainability visibility platform for ethical sourcing, batch verification, and climate reporting.",
-    institute: "TERI School",
-    category: "Climate Supply",
-    accent: "GT",
-  },
-  {
-    name: "CraftVault",
-    summary: "Brand packaging suite turning artisan inventory into investor-grade storefronts and purchase pipelines.",
-    institute: "IIT Madras",
-    category: "D2C Infrastructure",
-    accent: "CV",
-  },
-  {
-    name: "UrbanNest",
-    summary: "Property and operations intelligence for distributed micro-warehouses near high-demand urban nodes.",
-    institute: "SPA Delhi",
-    category: "Ops Tech",
-    accent: "UN",
-  },
-  {
-    name: "PulseRoute",
-    summary: "Delivery promise engine that predicts slippage and helps founder-led teams stay ahead of customer risk.",
-    institute: "IIT Roorkee",
-    category: "Fulfilment AI",
-    accent: "PR",
-  },
-  {
-    name: "Atlas Loom",
-    summary: "Cross-border textiles intelligence for buyer discovery, catalog structuring, and demand forecasting.",
-    institute: "IIT Madras",
-    category: "Textile Intelligence",
-    accent: "AL",
-  },
+  { name: "Kashmir Trends", summary: "Digital commerce infrastructure for Kashmiri apparel makers in global retail.", institute: "IIT Madras", category: "Logistics", image: kashmirImg },
+  { name: "ShipKart", summary: "Autonomous routing software for cross-border, artisan-led distribution networks.", institute: "IIT Bombay", category: "Mobility", image: shipkartImg },
+  { name: "WareHive", summary: "Composable warehousing helping fragmented manufacturers act as one export network.", institute: "IIT Madras", category: "Industrial", image: warehiveImg },
+  { name: "LogiChain", summary: "Traceability and logistics orchestration for premium regional supply ecosystems.", institute: "IIM Ahmedabad", category: "Supply Infra", image: logichainImg },
+  { name: "ThreadPort", summary: "AI-assisted export OS helping textile makers price, pack, and dispatch with ease.", institute: "NIFT Delhi", category: "Trade Tech", image: threadportImg },
+  { name: "FreightBox", summary: "Cargo intelligence layer for smaller brands needing enterprise-grade visibility.", institute: "IIT Kharagpur", category: "Logistics", image: freightboxImg },
+  { name: "BazaarOS", summary: "Market access stack connecting local producers to structured retail demand.", institute: "IIT Madras", category: "Retail OS", image: bazaarosImg },
+  { name: "GreenThread", summary: "Sustainability visibility platform for ethical sourcing and climate reporting.", institute: "TERI School", category: "Sustainability", image: greenthreadImg },
+  { name: "CraftVault", summary: "Brand suite turning artisan inventory into investor-grade D2C storefronts.", institute: "IIT Madras", category: "D2C", image: craftvaultImg },
+  { name: "UrbanNest", summary: "Operations intelligence for distributed micro-warehouses in high-demand zones.", institute: "SPA Delhi", category: "PropTech", image: urbannestImg },
+  { name: "PulseRoute", summary: "Delivery promise engine predicting slippage for founder-led ops teams.", institute: "IIT Roorkee", category: "Fulfilment", image: pulserouteImg },
+  { name: "Atlas Loom", summary: "Cross-border textile intelligence for buyer discovery and demand forecasting.", institute: "IIT Madras", category: "Textile AI", image: atlasloomImg },
 ];
 
 const Discover = () => (
@@ -154,35 +94,40 @@ const Discover = () => (
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {featuredStartups.map((startup) => (
           <Link
             key={startup.name}
             to={startup.name === "Kashmir Trends" ? "/startup/kashmir-trends" : "/startup"}
-            className="group border border-border bg-card card-hover overflow-hidden"
+            className="group border border-border bg-card card-hover overflow-hidden flex flex-col"
           >
-            <div className="relative p-4 border-b border-border discover-tile min-h-[210px] flex items-center justify-center panel-grid">
-              <div className="accent-orbit relative w-36 h-36 bg-card flex items-center justify-center">
-                <div className="absolute inset-3 border border-primary/15" />
-                <span className="text-4xl font-black uppercase tracking-tight text-primary">{startup.accent}</span>
+            <div className="relative p-2.5 bg-muted/40 border-b border-border">
+              <div className="aspect-square overflow-hidden relative">
+                <img
+                  src={startup.image}
+                  alt={`${startup.name} cover`}
+                  loading="lazy"
+                  width={768}
+                  height={768}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
-            <div className="p-4 space-y-4">
-              <div className="flex items-start justify-between gap-3">
-                <div className="space-y-2">
-                  <h2 className="text-xl font-black uppercase tracking-tight text-foreground leading-none">{startup.name}</h2>
-                  <p className="text-xs leading-relaxed text-muted-foreground min-h-[54px]">{startup.summary}</p>
-                </div>
-                <BadgeCheck className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+            <div className="p-4 space-y-3 flex-1 flex flex-col">
+              <div className="flex items-start justify-between gap-2">
+                <h2 className="text-base font-black uppercase tracking-tight text-foreground leading-tight">{startup.name}</h2>
+                <BadgeCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
               </div>
-              <div className="space-y-2 text-[9px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
+              <p className="text-[11px] leading-relaxed text-muted-foreground line-clamp-2 min-h-[34px]">{startup.summary}</p>
+              <div className="space-y-2 text-[9px] font-bold uppercase tracking-[0.22em] text-muted-foreground mt-auto">
                 <div className="flex items-center justify-between gap-3 border-t border-border pt-3">
                   <span>Institute</span>
                   <span className="text-foreground">{startup.institute}</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span>Category</span>
-                  <span className="border border-primary/20 bg-primary px-2 py-1 text-primary-foreground">{startup.category}</span>
+                  <span className="bg-primary px-2 py-1 text-primary-foreground tracking-[0.18em]">{startup.category}</span>
                 </div>
               </div>
             </div>
