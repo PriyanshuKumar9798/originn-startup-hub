@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      {/* Grid template stays identical so center & right columns never resize */}
-      <div className="max-w-[1440px] mx-auto px-4 py-4 grid grid-cols-1 lg:grid-cols-[220px_1fr_280px] gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 py-4 overflow-x-clip">
+        <div className={`grid grid-cols-1 gap-4 lg:grid-cols-[220px_1fr_280px] transition-transform duration-300 ease-out ${leftOpen ? "lg:translate-x-0" : "lg:-translate-x-[110px]"}`}>
         <div className="relative">
           {/* Hide content (not the slot) so center width stays fixed */}
           <div
@@ -42,6 +42,7 @@ const Index = () => {
         </div>
 
         <RightSidebar />
+        </div>
       </div>
       <Footer />
     </div>
