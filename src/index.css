@@ -60,6 +60,7 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Open Sans', sans-serif;
+    background-image: radial-gradient(circle at top, hsl(var(--primary) / 0.05), transparent 32%);
   }
 }
 
@@ -70,5 +71,30 @@
   .card-hover:hover {
     box-shadow: 0 4px 20px -6px hsl(var(--primary) / 0.15);
     border-color: hsl(var(--primary) / 0.2);
+  }
+
+  .panel-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.7) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.7) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .discover-hero {
+    background:
+      radial-gradient(circle at top right, hsl(var(--primary) / 0.12), transparent 28%),
+      linear-gradient(180deg, hsl(var(--card)), hsl(var(--muted) / 0.4));
+  }
+
+  .discover-tile {
+    background:
+      radial-gradient(circle at top left, hsl(var(--primary) / 0.16), transparent 40%),
+      linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted) / 0.55));
+  }
+
+  .accent-orbit {
+    box-shadow:
+      inset 0 0 0 1px hsl(var(--primary) / 0.18),
+      0 22px 40px -24px hsl(var(--primary) / 0.3);
   }
 }
