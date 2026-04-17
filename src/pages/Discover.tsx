@@ -1,5 +1,6 @@
 import { ArrowRight, BadgeCheck, ChevronDown, Search, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 
 const filters = ["Category", "Stage", "Institute", "Product Type", "Target Market"];
 
@@ -98,6 +99,7 @@ const featuredStartups = [
 
 const Discover = () => (
   <div className="min-h-screen bg-background">
+    <Navbar />
     <main className="max-w-[1440px] mx-auto px-4 pt-8 pb-16 space-y-8">
       <section className="discover-hero border border-border p-6 md:p-8 overflow-hidden relative">
         <div className="absolute right-0 top-0 h-48 w-48 border-l border-b border-border/80 panel-grid opacity-70" />

@@ -33,7 +33,7 @@ const Navbar = () => {
             );
           })}
         </nav>
-        <button className="hidden md:flex items-center gap-1.5 bg-gradient-to-r from-primary to-blue-600 text-primary-foreground px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-none hover:shadow-md transition-shadow">
+        <button className="hidden md:flex items-center gap-1.5 bg-gradient-to-r from-primary to-originn-dark text-primary-foreground px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-none hover:shadow-md transition-shadow">
           <span>⚡</span> For Startups
         </button>
       </div>

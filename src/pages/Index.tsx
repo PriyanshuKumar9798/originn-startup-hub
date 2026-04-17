@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="max-w-[1440px] mx-auto px-4 py-4">
-        <div className={`grid grid-cols-1 gap-4 transition-[max-width] duration-300 ease-out ${leftOpen ? "lg:grid-cols-[220px_1fr_280px]" : "lg:grid-cols-[220px_1fr_280px] lg:max-w-[calc(100%-110px)] lg:mx-auto"}`}>
+      <div className="max-w-[1440px] mx-auto px-4 py-4 overflow-x-clip">
+        <div className={`grid grid-cols-1 gap-4 lg:grid-cols-[220px_1fr_280px] transition-transform duration-300 ease-out ${leftOpen ? "lg:translate-x-0" : "lg:-translate-x-[110px]"}`}>
         <div className="relative">
           {/* Hide content (not the slot) so center width stays fixed */}
           <div
