@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { Globe, Bookmark, Share2, Linkedin, Building2, Rocket, Code, Users } from "lucide-react";
 import heroImg from "@/assets/hero-mountains.jpg";
 import fabricImg from "@/assets/fabric-thumb.jpg";
 import founder1 from "@/assets/founder1.jpg";
 import founder2 from "@/assets/founder2.jpg";
+import CollaborateSection from "@/components/collaborate/CollaborateSection";
 
-const tabs = ["About", "Behind the scenes", "Team", "Collaborate", "Jobs"];
+const tabs = ["About", "Updates", "Team", "Q & A", "Collaborate", "Jobs"];
 
-const CenterColumn = () => (
+const CenterColumn = () => {
+  const [activeTab, setActiveTab] = useState("About");
+  return (
   <main className="space-y-4">
     {/* Hero */}
     <div className="w-full overflow-hidden border border-border relative group">
