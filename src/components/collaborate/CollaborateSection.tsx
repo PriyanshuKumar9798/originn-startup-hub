@@ -304,15 +304,13 @@ const CollaborateSection = () => {
               <div className="flex items-center justify-between gap-1 sm:gap-2">
                 {STEPS.map((s, idx) => {
                   const active = step === s.id;
-                  const done = completion[s.id as 1 | 2 | 3 | 4] && step > s.id;
-                  const reachable = step >= s.id;
+                  const done = completion[s.id as 1 | 2 | 3 | 4];
                   return (
                     <div key={s.id} className="flex items-center flex-1 last:flex-none">
                       <button
                         type="button"
-                        onClick={() => reachable && setStep(s.id)}
-                        disabled={!reachable}
-                        className="flex flex-col items-center gap-1.5 group disabled:cursor-not-allowed"
+                        onClick={() => goToStep(s.id)}
+                        className="flex flex-col items-center gap-1.5 group"
                       >
                         <div
                           className={`w-9 h-9 flex items-center justify-center text-xs font-bold border transition-all ${
