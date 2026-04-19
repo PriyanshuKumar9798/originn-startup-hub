@@ -420,7 +420,6 @@ const CollaborateSection = () => {
                   Send Proposal
                 </Button>
               )}
-            </div>
           </div>
         </div>
       )}
