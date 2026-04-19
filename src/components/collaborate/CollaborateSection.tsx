@@ -166,11 +166,16 @@ const CollaborateSection = () => {
   };
 
   const goNext = () => {
-    if (validateStep(step)) setStep((s) => Math.min(4, s + 1));
+    setErrors({});
+    setStep((s) => Math.min(4, s + 1));
   };
   const goBack = () => {
     setErrors({});
     setStep((s) => Math.max(1, s - 1));
+  };
+  const goToStep = (s: number) => {
+    setErrors({});
+    setStep(s);
   };
 
   const handleSubmit = () => {
