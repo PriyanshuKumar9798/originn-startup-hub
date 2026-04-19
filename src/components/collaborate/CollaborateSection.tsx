@@ -244,66 +244,58 @@ const CollaborateSection = () => {
         </div>
       </div>
 
-      {/* === CTA Card === */}
-      <div className="bg-card border border-border overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-originn-green to-primary" />
-        <div className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 border border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0">
-              <Sparkles className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-primary uppercase tracking-wide">
-                Propose a Collaboration
-              </h3>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed max-w-md">
-                Send a structured, confidential proposal directly to Kashmir Trends — patents,
-                research, expertise, or partnership ideas welcome.
-              </p>
-            </div>
-          </div>
-          <Button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="rounded-none uppercase tracking-wider text-xs font-bold gap-2 flex-shrink-0"
-          >
-            <Send className="w-3.5 h-3.5" />
-            Start Proposal
-          </Button>
-        </div>
-      </div>
-
-      {/* === Wizard Modal === */}
-      {open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-foreground/40 backdrop-blur-sm animate-fade-in"
-          onClick={closeWizard}
-        >
-          <div
-            className="bg-card border border-border w-full max-w-2xl max-h-[92vh] flex flex-col shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border bg-gradient-to-r from-primary/[0.05] to-transparent">
+      {/* === Inline CTA / Wizard === */}
+      {!open ? (
+        <div className="bg-card border border-border overflow-hidden relative">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-originn-green to-primary" />
+          <div className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 border border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-5 h-5 text-primary" />
+              </div>
               <div>
-                <h2 className="text-sm sm:text-base font-extrabold text-primary uppercase tracking-wide">
-                  Collaborate with Kashmir Trends
-                </h2>
-                <p className="text-[11px] text-muted-foreground mt-0.5">
-                  Step {step} of {STEPS.length} · {STEPS[step - 1].label}
+                <h3 className="text-sm font-bold text-primary uppercase tracking-wide">
+                  Propose a Collaboration
+                </h3>
+                <p className="text-xs text-muted-foreground mt-1 leading-relaxed max-w-md">
+                  Send a structured, confidential proposal directly to Kashmir Trends — patents,
+                  research, expertise, or partnership ideas welcome.
                 </p>
               </div>
-              <button
-                onClick={closeWizard}
-                className="w-8 h-8 border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
-                aria-label="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
             </div>
+            <Button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="rounded-none uppercase tracking-wider text-xs font-bold gap-2 flex-shrink-0"
+            >
+              <Send className="w-3.5 h-3.5" />
+              Start Proposal
+            </Button>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-card border border-border flex flex-col animate-fade-in">
+          {/* Inline Header */}
+          <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border bg-gradient-to-r from-primary/[0.05] to-transparent">
+            <div>
+              <h2 className="text-sm sm:text-base font-extrabold text-primary uppercase tracking-wide">
+                Collaborate with Kashmir Trends
+              </h2>
+              <p className="text-[11px] text-muted-foreground mt-0.5">
+                Step {step} of {STEPS.length} · {STEPS[step - 1].label}
+              </p>
+            </div>
+            <button
+              onClick={closeWizard}
+              className="w-8 h-8 border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
 
-            {/* Stepper */}
-            <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-border">
+          {/* Stepper */}
+          <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-border">
               <div className="flex items-center justify-between gap-1 sm:gap-2">
                 {STEPS.map((s, idx) => {
                   const active = step === s.id;
@@ -428,7 +420,6 @@ const CollaborateSection = () => {
                   Send Proposal
                 </Button>
               )}
-            </div>
           </div>
         </div>
       )}
